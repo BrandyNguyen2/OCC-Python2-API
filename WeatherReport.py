@@ -17,13 +17,13 @@ class WeatherReport :
     # METHODS
     def getCity(self) :
         return self.__city
-    
+    # Returns the temperature unit
     def getTemperatureUnit(self) :
         return self.__temperatureUnit 
-    
+    # Returns the wind speed unit
     def getWindSpeedUnit(self) :
         return self.__windSpeedUnit
-    
+    # Returns the current weather conditions
     def currentWeatherConditions(self) :
         PATH = "https://api.open-meteo.com/v1/forecast"
         coordinates = self.cityCoordinates()
@@ -32,7 +32,7 @@ class WeatherReport :
         response = requests.get(PATH + QUERY)
         retrievedData = response.json()
         return retrievedData
-
+    # Returns the coordinates of the city
     def cityCoordinates(self) :
         if self.__city == "Costa Mesa, California" :
             self.__latitude = 33.641132
@@ -51,7 +51,7 @@ class WeatherReport :
             self.__longitude = -117.91
         self.__cityCoordinates = (self.__latitude, self.__longitude)
         return self.__cityCoordinates
-        
+    # Converts weather code to something more readable
     def convertWeatherCode(self, weatherCode) :
         if weatherCode == 0 :
             self.__weather = "Clear sky"
@@ -110,7 +110,7 @@ class WeatherReport :
         elif weatherCode == 99 :
             self.__weather = "Thunderstorm: heavy hail"
         return self.__weather
-
+    # Tells if it is day or night
     def convertIsDay(self, isDay) :
         if isDay == 1 :
             return "Daylight"
