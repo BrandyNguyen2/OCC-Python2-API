@@ -7,4 +7,4 @@
 4. Run TesterAPI.py
 
 ## Screenshot of the output:
-![alt text](API.jpg)
+![alt text](API.JPG)
