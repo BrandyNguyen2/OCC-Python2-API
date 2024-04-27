@@ -4,8 +4,10 @@ import requests
 class WeatherReport :
     # CONSTRUCTOR 
     def __init__(self, city, temperatureUnit, windSpeedUnit) :
+        # Check if the city is valid
         if city not in ["Costa Mesa, California", "Berlin, Germany", "Tokyo, Japan", "Paris, France", "Montreal, Canada"] :
             raise ValueError("Not a valid city")
+        # Check if the temperature unit and wind speed unit are valid
         if temperatureUnit not in ["celsius", "fahrenheit"] :
             raise ValueError("Temperature unit is not valid")
         if windSpeedUnit not in ["kmh", "ms", "mph", "kn"] :
